@@ -1,0 +1,79 @@
+design link - https://xd.adobe.com/view/d279d480-a186-41c2-9af5-047dd84c75bf-872a/
+
+Made a ordered site with stock visible and mass order ability
+Made a status oforder and claim and payments pdf show on user and upload through admin from tally
+Made a claim form in user end and show claim status in table also in admin side with claim details like out of 10 claim how much did they success claim **
+Made stock add and update in admin page.
+
+
+
+**Remember to add in all page after login show the unique id in url combination of [powerfriend-dealerCode-name-id]
+Check the unique id generate and use in adminUserDetails redirect page on click from url.
+
+Make sure do home to add to cart using uniqueId adtocart table should containe that uniqueId table which containe all user addtocart data and as per
+    user logged in show match add tocart rows do it after complete login
+** Remeber to change the login session to 30 days current 1hour and after order delivery status clear minutes current 1 minutes
+
+//nav bar of user page
+<div
+      class="z-1 position-absolute position-lg-relative start-0 m-2 p-2 rounded-5 d-flex flex-column justify-content-between align-items-center bg-dark"
+      style="width:60px; height:80vh; height: auto !important;">
+      <a href="#" id="menuButton"
+        class=" d-flex justify-content-center align-items-center link-body-emphasis text-decoration-none bg-light rounded-5"style="width:45px;height:45px;">
+        <i class="fa-solid fa-chart-simple"></i>
+      </a>
+      <ul id="menusItems"
+        class="d-none d-lg-flex overflow-hidden nav nav-pills nav-flush flex-column justify-content-center align-items-center text-center"
+        style="width:100%; height:calc(80vh - (40px + 45px));">
+        <li class="nav-item mb-2" data-bs-toggle="tooltip" data-bs-placement="right"data-bs-custom-class="custom-tooltip"data-bs-title="Home">
+          <a href="./index.php" style="height:40px;width:40px"
+            class="mb-2 d-flex justify-content-center align-items-center nav-link active border-bottom rounded-5">
+            <i class="fa-solid fa-house"></i>
+          </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="right"data-bs-custom-class="custom-tooltip"data-bs-title="Registration">
+          <a href="./register.php" style="height:40px;width:40px"
+            class="mb-2 d-flex justify-content-center align-items-center nav-link border-bottom rounded-5"
+            onmouseover="this.style.backgroundColor='white'; this.style.color='#FF204E';"
+            onmouseout="this.style.backgroundColor=''; this.style.color='#FF204E';">
+            <i class="fa-solid fa-address-card"></i>
+          </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="right"data-bs-custom-class="custom-tooltip"data-bs-title="Cart">
+          <a href="./addToCart.html" style="height:40px;width:40px"
+            class="mb-2 d-flex justify-content-center align-items-center nav-link border-bottom rounded-5"
+            onmouseover="this.style.backgroundColor='white'; this.style.color='#FF204E';"
+            onmouseout="this.style.backgroundColor=''; this.style.color='#FF204E';">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="right"data-bs-custom-class="custom-tooltip"data-bs-title="Order Status">
+          <a href="./orderStatus.php" style="height:40px;width:40px"
+            class="mb-2 d-flex justify-content-center align-items-center nav-link border-bottom rounded-5"
+            onmouseover="this.style.backgroundColor='white'; this.style.color='#FF204E';"
+            onmouseout="this.style.backgroundColor=''; this.style.color='#FF204E';">
+            <i class="fa-solid fa-truck"></i>
+          </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="right"data-bs-custom-class="custom-tooltip"data-bs-title="Order Claim">
+          <a href="./claim.html" style="height:40px;width:40px"
+            class="mb-2 d-flex justify-content-center align-items-center nav-link border-bottom rounded-5"
+            onmouseover="this.style.backgroundColor='white'; this.style.color='#FF204E';"
+            onmouseout="this.style.backgroundColor=''; this.style.color='#FF204E';">
+            <i class="fa-solid fa-hand-holding-hand"></i>
+          </a>
+        </li>
+      </ul>
+      <ul id="adminMenu"
+        class="d-none d-lg-flex overflow-hidden nav nav-pills nav-flush flex-column justify-content-center align-items-center text-center"
+        style="width:100%">
+        <li data-bs-toggle="tooltip" data-bs-placement="right"data-bs-custom-class="custom-tooltip"data-bs-title="Admin">
+          <a href="./adminParties.php" style="height:40px;width:40px"
+            class="mb-2 d-flex justify-content-center align-items-center nav-link border-bottom rounded-5"
+            onmouseover="this.style.backgroundColor='white'; this.style.color='#FF204E';"
+            onmouseout="this.style.backgroundColor=''; this.style.color='#FF204E';">
+            <i class="fa-solid fa-user-tie"></i>
+          </a>
+        </li>
+      </ul>
+    </div>

@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Power Friend</title>
+  <script src="https://kit.fontawesome.com/e7678863ec.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Outfit:wght@100..900&family=Pacifico&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    /**{border:1px solid red;}*/
+    /* Customize the scrollbar track */
+    ::-webkit-scrollbar {
+      height: 6px;
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #FF204E;
+      border-radius: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #00224D;
+      border-radius: 6px;
+    }
+
+    .table tbody tr td:nth-child(3) {
+      width: 50%;
+    }
+
+    .d-lg-flex {
+      height: 25px;
+    }
+
+    #closeableDiv {
+      transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #closeableDiv.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- As a link -->
+  <div class=" m-0 p-0 row d-flex flex-column justify-content-start justify-content-lg-center align-items-center"
+    style="width:100%;height:100vh;">
+    <div
+      class="z-1 position-absolute position-lg-relative start-0 m-2 p-2 rounded-5 d-flex flex-column justify-content-between align-items-center bg-dark"
+      style="width: 60px; height: 95vh; height: auto !important;">
+      <a href="#" id="menuButton"
+        class=" d-flex justify-content-center align-items-center link-body-emphasis text-decoration-none bg-light rounded-5"
+        style="width:45px;height:45px;">
+        <i class="fa-solid fa-chart-simple"></i>
+      </a>
+      <ul id="menusItems"
+        class="d-none d-lg-flex overflow-hidden nav nav-pills nav-flush flex-column justify-content-center align-items-center text-center"
+        style="width:100%; height:calc(80vh - (40px + 45px));">
+        <li class="nav-item mb-2" data-bs-toggle="tooltip" data-bs-placement="right"
+          data-bs-custom-class="custom-tooltip" data-bs-title="Cart">
+          <a href="./index.php" style="height:40px;width:40px"
+            class="mb-2 d-flex justify-content-center align-items-center nav-link border-bottom rounded-5"
+            onmouseover="this.style.backgroundColor='white'; this.style.color='#FF204E';"
+            onmouseout="this.style.backgroundColor=''; this.style.color='#FF204E';">
+            <i class="fa-solid fa-house"></i>
+          </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip"
+          data-bs-title="Registration">
+          <a href="./register.php" style="height:40px;width:40px"
+            class="mb-2 d-flex justify-content-center align-items-center nav-link border-bottom rounded-5"
+            onmouseover="this.style.backgroundColor='white'; this.style.color='#FF204E';"
+            onmouseout="this.style.backgroundColor=''; this.style.color='#FF204E';">
+            <i class="fa-solid fa-address-card"></i>
+          </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip"
+          data-bs-title="Cart">
+          <a href="addToCart.html" style="height:40px;width:40px"
+            class="mb-2 d-flex justify-content-center align-items-center nav-link border-bottom rounded-5"
+            onmouseover="this.style.backgroundColor='white'; this.style.color='#FF204E';"
+            onmouseout="this.style.backgroundColor=''; this.style.color='#FF204E';">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip"
+          data-bs-title="Order Details">
+          <a href="./orderDetails.html" style="height:40px;width:40px"
+            class="mb-2 d-flex justify-content-center align-items-center nav-link active border-bottom rounded-5">
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+          </a>
+        </li>
+      </ul>
+      <ul id="adminMenu"
+        class="d-none d-lg-flex overflow-hidden nav nav-pills nav-flush flex-column justify-content-center align-items-center text-center"
+        style="width:100%">
+        <li data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip"
+          data-bs-title="Admin">
+          <a href="./adminBooking.html" style="height:40px;width:40px"
+            class="mb-2 d-flex justify-content-center align-items-center nav-link border-bottom rounded-5"
+            onmouseover="this.style.backgroundColor='white'; this.style.color='#FF204E';"
+            onmouseout="this.style.backgroundColor=''; this.style.color='#FF204E';">
+            <i class="fa-solid fa-user-tie"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="position-absolute overflow-auto col-12 main m-0 p-10  overflow-auto w-100"
+      style="width:calc(100% - 100px); height:100%;">
+      <div class="container mt-3 d-flex flex-column flex-wrap justify-content-center align-items-center">
+        <!-- section to code not outside  else, if better not to see-->
+        <div class="m-0 p-0 d-flex flex-column align-items-center align-items-lg-start mb-4">
+          <p class="m-0 p-0 fw-bold fs-3 text-start">Order Details</p><br>
+          <p class="m-0 p-0 fs-5">Provide payments details at the showroom. Any due payments will be settle there just
+            give your name as entered during regestration to proceed.</p>
+        </div>
+        <!-- <div id="addedProductsContainer"
+          class="overflow-auto container-fluid d-flex flex-column flex-wrap justify-content-center m-0 p-0"
+          style="width:100%;height:auto;"> -->
+        <div class="oderDetails m-0 p-0" style="width:90%;height:auto;">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 position-relative">
+              <input type="range" class="z-n1 p-0 form-range position-absolute" min="0" max="100" step="25" id="customRange3">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex flex-column w-auto">
+                  <button class="btn bg-success text-white rounded-circle"style="width:40px;" data-bs-toggle="tooltip"
+                    title="Order Confirmed" onclick="trackOrder(this)">
+                    <i class="fa-solid fa-check"></i>
+                  </button>
+                <!-- <span id="orderConfirmed" class="bg-secondary w-50 p-1 mx-n1 rounded mt-auto mb-auto"></span> -->        
+                    <div class="d-flex flex-column mt-2 order-status"><br>
+                      <i class="fas fa-clipboard-list fa-3x me-lg-4 mb-3 mb-lg-0"></i>
+                      <p class="fw-bold mb-1">Order<br>Confirmed</p> <br>  
+                      <button class="btn btn-primary mt-2" type="button" onclick="trackOrder(this)">Track
+                        Order</button>
+                    </div>
+                </div>
+                <div class="d-flex flex-column w-auto">
+                  <button class="btn bg-success text-white rounded-circle"style="width:40px;" data-bs-toggle="tooltip"
+                    title="Order Confirmed" onclick="trackOrder(this)">
+                    <i class="fa-solid fa-check"></i>
+                  </button>
+                <!-- <span id="orderConfirmed" class="bg-secondary w-50 p-1 mx-n1 rounded mt-auto mb-auto"></span> -->        
+                    <div class="d-flex flex-column mt-2"><br>
+                      <i class="fas fa-box-open fa-3x me-lg-4 mb-3 mb-lg-0"></i>
+                      <p class="fw-bold mb-1">Order<br>Shipped</p> <br>  
+                      <button class="btn btn-primary mt-2" type="button" onclick="trackOrder(this)">Track
+                        Order</button>
+                    </div>
+                </div>
+                <div class="d-flex flex-column w-auto">
+                  <button class="btn bg-success text-white rounded-circle"style="width:40px;" data-bs-toggle="tooltip"
+                    title="Order Confirmed" onclick="trackOrder(this)">
+                    <i class="fa-solid fa-check"></i>
+                  </button>
+                <!-- <span id="orderConfirmed" class="bg-secondary w-50 p-1 mx-n1 rounded mt-auto mb-auto"></span> -->        
+                    <div class="d-flex flex-column mt-2"><br>
+                      <i class="fas fa-shipping-fast fa-3x me-lg-4 mb-3 mb-lg-0"></i>
+                      <p class="fw-bold mb-1">Out<br>For Delivery</p> <br>  
+                      <button class="btn btn-primary mt-2" type="button" onclick="trackOrder(this)">Track
+                        Order</button>
+                    </div>
+                </div>
+                <div class="d-flex flex-column w-auto">
+                  <button class="btn bg-success text-white rounded-circle"style="width:40px;" data-bs-toggle="tooltip"
+                    title="Order Confirmed" onclick="trackOrder(this)">
+                    <i class="fa-solid fa-check"></i>
+                  </button>
+                <!-- <span id="orderConfirmed" class="bg-secondary w-50 p-1 mx-n1 rounded mt-auto mb-auto"></span> -->        
+                    <div class="d-flex flex-column mt-2"><br>
+                      <i class="fas fa-home fa-3x me-lg-4 mb-3 mb-lg-0"></i>
+                      <p class="fw-bold mb-1">Order<br>Delivery</p> <br>  
+                      <button class="btn btn-primary mt-2" type="button" onclick="trackOrder('orderConfirmed')">Track
+                        Order</button>
+                    </div>
+                </div>
+                
+
+                <!-- <button class="btn bg-success text-white rounded-circle" data-bs-toggle="tooltip" title="Order Shipped"
+                  onclick="trackOrder('orderShipped')">
+                  <i class="fa-solid fa-check"></i>
+                </button>
+                <span id="orderShipped" class="bg-secondary w-50 p-1 mx-n1 rounded mt-auto mb-auto"></span>
+                <button class="btn bg-success text-white rounded-circle" data-bs-toggle="tooltip"
+                  title="Out for Delivery" onclick="trackOrder('outForDelivery')">
+                  <i class="fa-solid fa-check"></i>
+                </button>
+                <span id="outForDelivery" class="bg-secondary w-50 p-1 mx-n1 rounded mt-auto mb-auto"></span>
+                <button class="btn bg-secondary text-white rounded-circle" data-bs-toggle="tooltip"
+                  title="Order Delivered" onclick="trackOrder('orderDelivered')">
+                  <i class="fa-solid fa-check"></i>
+                </button>
+                <span id="orderDelivered" class="bg-secondary w-50 p-1 mx-n1 rounded mt-auto mb-auto"></span> -->
+              </div>
+              <!-- <div class="d-flex justify-content-between mt-4">
+                <div class="d-lg-flex align-items-center">
+                  <i class="fas fa-clipboard-list fa-3x me-lg-4 mb-3 mb-lg-0"></i>
+                  <div><br>
+                    <p class="fw-bold mb-1">Order</p>
+                    <p class="fw-bold mb-0">Confirmed</p>
+                    <button class="btn btn-primary mt-2" type="button" onclick="trackOrder('orderConfirmed')">Track
+                      Order</button>
+                  </div>
+                </div>
+                <div class="d-lg-flex align-items-center">
+                  <i class="fas fa-box-open fa-3x me-lg-4 mb-3 mb-lg-0"></i>
+                  <div><br>
+                    <p class="fw-bold mb-1">Order</p>
+                    <p class="fw-bold mb-0">Shipped</p>
+                    <button class="btn btn-primary mt-2" type="button" onclick="trackOrder('orderShipped')">Track
+                      Order</button>
+                  </div>
+                </div>
+                <div class="d-lg-flex align-items-center">
+                  <i class="fas fa-shipping-fast fa-3x me-lg-4 mb-3 mb-lg-0"></i>
+                  <div><br>
+                    <p class="fw-bold mb-1">Out for</p>
+                    <p class="fw-bold mb-0">Delivery</p>
+                    <button class="btn btn-primary mt-2" type="button" onclick="trackOrder('outForDelivery')">Track
+                      Order</button>
+                  </div>
+                </div>
+                <div class="d-lg-flex align-items-center">
+                  <i class="fas fa-home fa-3x me-lg-4 mb-3 mb-lg-0"></i>
+                  <div><br>
+                    <p class="fw-bold mb-1">Order</p>
+                    <p class="fw-bold mb-0">Delivered</p>
+                    <button class="btn btn-primary mt-2" type="button" onclick="trackOrder('orderDelivered')">Track
+                      Order</button>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- alart -->
+        <br>
+        <br>
+        <br>
+        <div id="closeableDiv"
+          class="position-relative p-3 text-center text-muted bg-body border border-dashed rounded-5">
+          <button type="button"
+            class="position-absolute top-0 end-0 p-3 m-3 btn-close bg-secondary bg-opacity-10 rounded-pill"
+            aria-label="Close"></button>
+          <svg class="bi mt-5 mb-3" width="40" height="40">
+            <use xlink:href="#check2-circle"></use>
+          </svg>
+          <h1 class="text-body-emphasis">Placeholder jumbotron</h1>
+          <p class="col-lg-6 mx-auto mb-4">
+            This faded back jumbotron is useful for placeholder content. It's also a great way to add a bit of context
+            to a page or section when no content is available and to encourage visitors to take a specific action.
+          </p>
+          <button class="btn btn-primary px-5 mb-5" type="button">
+            Call to action
+          </button>
+        </div>
+        <br>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button class="btn btn-primary me-md-3" type="button">View Pdf</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
+    <script>
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+      document.getElementById('menuButton').addEventListener('click', function (event) {
+        var menuItems = document.getElementById('menusItems');
+        var adminMenu = document.getElementById('adminMenu');
+
+        if (menuItems.classList.contains('d-flex')) {
+          menuItems.classList.remove('d-flex');
+          menuItems.classList.add('d-none');
+          adminMenu.classList.remove('d-flex');
+          adminMenu.classList.add('d-none');
+        } else {
+          menuItems.classList.remove('d-none');
+          menuItems.classList.add('d-flex');
+          adminMenu.classList.remove('d-none');
+          adminMenu.classList.add('d-flex');
+        }
+
+        // Prevent the click from bubbling up to the document event listener
+        event.stopPropagation();
+      });
+
+      document.addEventListener('click', function () {
+        var menuItems = document.getElementById('menusItems');
+        var adminMenu = document.getElementById('adminMenu');
+
+        if (menuItems.classList.contains('d-flex')) {
+          menuItems.classList.remove('d-flex');
+          menuItems.classList.add('d-none');
+          adminMenu.classList.remove('d-flex');
+          adminMenu.classList.add('d-none');
+        }
+      });
+
+      document.getElementById('searchInput').addEventListener('input', function () {
+        const searchTerm = this.value.toLowerCase();
+        const cards = document.querySelectorAll('.card');
+
+        cards.forEach(card => {
+          const title = card.querySelector('.card-title').textContent.toLowerCase();
+          if (title.includes(searchTerm)) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Select the close button
+        const closeButton = document.querySelector('.btn-close');
+
+        // Add click event listener to the close button
+        closeButton.addEventListener('click', () => {
+          // Select the parent div of the close button
+          const parentDiv = document.getElementById('closeableDiv');
+
+          // Add the hidden class to trigger the fade-out effect
+          if (parentDiv) {
+            parentDiv.classList.add('hidden');
+          }
+        });
+      });
+      function trackOrder(button) {
+    // Get all elements with the text that needs to be updated
+    var allTextElements = document.querySelectorAll('.order-status');
+    
+    // Update all text elements to default color
+    allTextElements.forEach(element => {
+        element.classList.remove('text-primary'); // Remove primary color class
+        element.classList.add('text-secondary'); // Add secondary color class
+    });
+
+    // Update the text color of the clicked button's associated text
+    var associatedText = button.closest('.d-flex').querySelector('.order-status');
+    if (associatedText) {
+        associatedText.classList.remove('text-secondary');
+        associatedText.classList.add('text-primary');
+    }
+
+    // Get the range input element
+    var rangeInput = document.getElementById('customRange3');
+    
+    // Get the current value, min, and max attributes
+    var currentValue = parseInt(rangeInput.value, 10);
+    var minValue = parseInt(rangeInput.min, 0);
+    var maxValue = parseInt(rangeInput.max, 100);
+    var stepValue = parseInt(rangeInput.step, 25);
+
+    // Calculate the next value
+    var newValue = currentValue + stepValue;
+
+    // Ensure the new value does not exceed the maximum limit
+    if (newValue > maxValue) {
+        newValue = maxValue;
+    }
+
+    // Set the new value to the range input
+    rangeInput.value = newValue;
+}
+
+
+
+    </script>
+</body>
+
+</html>
